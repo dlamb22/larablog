@@ -10,6 +10,7 @@
     <body>
         @include('inc.navbar')
         <div class="container my-4">
+            @include('inc.messages')
             @yield('content')
         </div>
     </body>
