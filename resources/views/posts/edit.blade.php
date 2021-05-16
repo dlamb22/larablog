@@ -5,7 +5,7 @@
     <h1>Edit Post</h1>
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('posts.update', $post->id) }}" method="POST">
+            <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
             {{-- <form action="/posts/{{ $post->id }}" method="POST"> --}}
                 @method('PUT')
                 @csrf
@@ -33,7 +33,11 @@
                         CKEDITOR.replace( 'body' );
                     </script>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <input name="cover_image" type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                <a href="/posts/{{ $post->id }}" class="btn btn-secondary">Go Back</a>
+                <button type="submit" class="btn btn-primary float-right">Submit</button>
             </form>
         </div>
     </div>

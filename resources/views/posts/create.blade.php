@@ -5,7 +5,7 @@
     <h1>Create Post</h1>
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('posts.store') }}" method="POST">
+            <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="title">Title</label>
@@ -18,7 +18,11 @@
                         CKEDITOR.replace( 'body' );
                     </script>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <input name="cover_image" type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                <a href="{{ route('dashboard') }}" class="btn btn-secondary">Go Back</a>
+                <button type="submit" class="btn btn-primary float-right">Submit</button>
             </form>
         </div>
     </div>
